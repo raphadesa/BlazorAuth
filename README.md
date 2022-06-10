@@ -1,4 +1,4 @@
 # BlazorAuth
 
 
-![](animation.gif)
+![] (animation.gif)

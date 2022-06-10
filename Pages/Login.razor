@@ -1,0 +1,31 @@
+﻿@page "/Login"
+@inject NavigationManager navigationManager
+<h3>Login</h3>
+
+
+<EditForm Model="@login" OnValidSubmit="onSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="form-outline mb-4">
+        <label class="form-label">Email address</label>
+       <InputText @bind-Value="login.login" />            
+    </div>
+ 
+    <div class="form-outline mb-4">
+     <label class="form-label">Password</label>
+    <InputText @bind-Value="login.password" type="password" />        
+    </div>        
+   <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+</EditForm>
+
+@code {
+    private LoginVM login = new();
+
+    void onSubmit()
+    {
+        if(login.login=="johndoe@contoso.com" && login.password=="test")
+        {
+            navigationManager.NavigateTo($"Authenticate?user={login.login}", forceLoad:true);
+        }
+    }
+}

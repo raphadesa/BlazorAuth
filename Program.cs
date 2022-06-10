@@ -12,8 +12,7 @@ builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddAuthentication(
     CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie();
-    
-
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 

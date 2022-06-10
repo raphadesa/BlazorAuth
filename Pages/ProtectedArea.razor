@@ -1,7 +1,10 @@
 ﻿@page "/ProtectedArea"
 @attribute [Authorize]
+@inject IHttpContextAccessor context;
 
 <h3>ProtectedArea</h3>
+
+<h4>Hi @context.HttpContext.User.Identity.Name</h4>
 
 <NavLink href="/Logout">Sign Out</NavLink>
 
